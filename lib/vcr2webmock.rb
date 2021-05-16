@@ -39,7 +39,7 @@ module Vcr2webmock
 
   # @param [Pathfile] pathfile Pathfile instanse that relate cassette
   def convertation(pathfile)
-    Converter.new(pathfile).convert
+    Vcr.process(pathfile)
   end
 
   # @param [Pathfile] pathfile Pathfile instance that relate directory

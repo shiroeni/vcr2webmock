@@ -1,18 +1,14 @@
 # frozen_string_literal: true
 
-RSpec.describe Vcr2webmock::Converter do
-  subject(:converter_instance) do
-    described_class.new(path_to_file)
-  end
-
-  describe '#convert' do
+RSpec.describe Vcr2webmock::Vcr do
+  describe '.process' do
     context 'when parsed `cassette1.yml`' do
       let(:path_to_file) do
         Pathname.new('spec/dummy/cassette1.yml')
       end
 
       it 'outputs correct data' do
-        expect{ converter_instance.convert }
+        expect { described_class.process(path_to_file) }
           .to output(
             <<~TEXT
               # spec/dummy/cassette1.yml
